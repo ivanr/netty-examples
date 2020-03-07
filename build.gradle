@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // If you want to use custom netty libraries; you must
+    // build them and place them in the lib/ folder as they
+    // are not included in this project.
+    //compile files('lib/netty-all-4.1.46.Final.jar')
+    //compile files('lib/netty-tcnative-openssl-static-2.0.29.Final-osx-x86_64.jar')
+
+    // If you want to use the official releases.
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.46.Final'
+    //compile group: 'io.netty', name: 'netty-tcnative', version: '2.0.29.Final'
+    compile group: 'io.netty', name: 'netty-tcnative-boringssl-static', version: '2.0.29.Final'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = [
+                    "src/"
+            ]
+        }
+    }
+}
